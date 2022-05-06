@@ -12,8 +12,12 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2)
     
     
+    class Meta:
+        db_table = "products"
+    
 
-class Order(models.Model):
+
+class Order (models.Model):
     ORDER_STATUS_PENDING = 'P'
     ORDER_STATUS_COMPLETE = 'C'
     ORDER_STATUS_FAILED = 'F'
@@ -27,3 +31,8 @@ class Order(models.Model):
     date_of_submission = models.DateTimeField(auto_now_add=True)
     order_status = models.CharField(max_length=1, choices=ORDER_STATUS_CHOICES, default=ORDER_STATUS_PENDING)
     
+    products = models.ManyToManyField(Product)
+    
+    
+    class Meta:
+        db_table = "orders"

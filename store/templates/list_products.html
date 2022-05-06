@@ -1,0 +1,8 @@
+{% for el in object_list%}
+<p> {{el.title}}, {{el.description}}, {{el.price}} </p>
+
+{% if user.is_authenticated %}
+    <p> {{user.username}} </p>
+{% endif %}
+
+{% endfor %}
