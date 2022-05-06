@@ -14,7 +14,7 @@ import os
 from pathlib import Path
 from environs import Env
 
-env = Env()
+env = Env ()
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'store',
+    'accounts',
 ]
 
 MIDDLEWARE = [
