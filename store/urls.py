@@ -1,8 +1,9 @@
 from typing import List
 from django.urls import path
-from .views import ListProducts
+from .views import ListProducts, HomeView
 
 
 urlpatterns = [
-    path('', ListProducts.as_view(), name='products')
+    path("", HomeView.as_view(), name="home"),
+    path("", ListProducts.as_view(), name="products"),
 ]
