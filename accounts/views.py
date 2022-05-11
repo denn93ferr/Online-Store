@@ -10,35 +10,36 @@ from django.urls import reverse_lazy
 # 2: try oberwriting the .save() method of the modelform and add there
 #    the logic of keeping the user logged in after creation
 
+
 def signup(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         form = SignUpForm(request.POST)
         if form.is_valid():
             form.save()
             #
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password= raw_password)
+            username = form.cleaned_data.get("username")
+            raw_password = form.cleaned_data.get("password1")
+            user = authenticate(username=username, password=raw_password)
             login(user, request)
             #
-            return redirect('properties')
+            return redirect("properties")
     else:
         form = SignUpForm()
-    return render(request, 'signup.html', {'form':form})
-
+    return render(request, "signup.html", {"form": form})
 
 
 # redirect ~ reverse_lazy"
 
+
 class CustomLoginView(LoginView):
-    template_name = 'login.html'
-    
+    template_name = "login.html"
+
 
 class CustomLogoutView(LogoutView):
     template_name = None
 
+
 class CustomPasswordChangeView(PasswordChangeView):
-    template_name = 'password_change.html'
-    success_url = reverse_lazy('properties')
+    template_name = "password_change.html"
+    success_url = reverse_lazy("properties")
     # success_url = redirect('properties')
-    
