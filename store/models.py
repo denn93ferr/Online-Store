@@ -19,6 +19,11 @@ class Product(models.Model):
     def __str__(self):
         return self.title
 
+    @property
+    def cover(self):
+        picture = self.pictures.filter(is_cover=True).first()
+        return picture.image_small.url
+
 
 class Picture(models.Model):
     product = models.ForeignKey(
