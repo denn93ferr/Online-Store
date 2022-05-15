@@ -1,7 +1,19 @@
-{% for el in object_list %}
+<!-- {% for el in object_list %}
 <p>{{ el.title }}, {{ el.description}}, {{ el.price }}</p>
 
 {% if user.is_authenticated %}
 <p>{{ user.username }}</p>
 {% endif %}
+{% endfor %} -->
+
+{% for product in products %}
+<div class="card" style="width: 18rem;">
+    <img class="card=img-top" src="{{ product.image }}" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">{{ product.title }}</h5>
+        <p class="card-text">{{ product.description }}</p>
+        <p class="card-text">Price - {{ product.price }}</p>
+        <a href="#" class="btn btn-primary">Buy Now</a>
+    </div>
+</div>
 {% endfor %}
