@@ -22,7 +22,7 @@ class Product(models.Model):
     @property
     def cover(self):
         picture = self.pictures.filter(is_cover=True).first()
-        return picture.image_small.url
+        return picture.image_large.url
 
 
 class Picture(models.Model):
