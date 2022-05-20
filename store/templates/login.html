@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
+
+{% block content %}
 <form method="post">
     {% csrf_token %}
     <table>{{ form }}</table>
@@ -73,3 +75,4 @@
       </script>
   </body>
   </html>
+  {% endblock content %}
