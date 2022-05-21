@@ -45,6 +45,7 @@
 {% endblock content %}
 
 {% block extrascripts %}
+
 <script>
     document.getElementById('pop-up-alert').style.display = 'none';
     function CheckIfFilled(){
@@ -55,7 +56,7 @@
         }
         else {
             document.getElementById('pop-up-alert').style.display = 'none';
-            location.href = 'home.html';
+            location.href = "{% url 'home' %}";
         }
             }
 

@@ -1,3 +1,7 @@
 main > .container {
     padding-top: 60px;
 }
+
+main1 > . .container {
+    padding-top: 50px;
+}
