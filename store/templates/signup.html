@@ -1,6 +1,83 @@
-<h2>Sign up</h2>
+<!-- <h2>Sign up</h2>
 <form method="post">
   {% csrf_token %}
   {{ form.as_p }}
   <button type="submit">Sign up</button>
 </form>
+{%block content%} -->
+
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign up</title>
+	<link rel="stylesheet" href="signup-style.css">
+</head>
+<body>
+	<div class="container">
+		<div class="pop-up">
+			<div class="header">
+				<p>SIGN UP</p>
+			</div>
+			<div class="form">
+				<div class="input">
+					<label>Name</label>
+					<input id="name" type="text" placeholder="Enter your full name">
+				</div>
+				<div class="input">
+					<label>Date of Birth</label>
+					<input  id="dob" type="date" placeholder="Enter your date of birth">
+				</div>
+				<div class="input">
+					<label>Email</label>
+					<input  id="email"  type="email" placeholder="Enter your email">
+				</div>
+				<div class="input">
+					<label>Password</label>
+					<input  id="password" type="password" placeholder="Enter your password">
+				</div>
+				<div class="input">
+					<label> My Hobbies</label>
+					<textarea  id="hobbies"></textarea>
+				</div>
+				<div class="sign-up">
+					<button onclick="CheckIfFilled()">SIGN UP</button>
+				</div>
+			</div>
+			<div id="pop-up-alert">
+            	<p>All fields must be asigned</p>
+            	<button class="ok" onclick="Dissappear()">Okay</button>
+            </div>
+
+		</div>
+	</div>
+	<script>
+document.getElementById('pop-up-alert').style.display = 'none';
+function CheckIfFilled(){
+            const name = document.getElementById('name').value
+            const password=document.getElementById('password').value
+            const dob = document.getElementById('dob').value
+            const email = document.getElementById('email').value
+            const hobbies= document.getElementById('hobbies').value
+            if(name.length===0 || password.length===0 || email.length===0 || dob.length===0 || hobbies.length===0){
+                document.getElementById('pop-up-alert').style.display='flex';
+            }
+             else {
+                document.getElementById('pop-up-alert').style.display = 'none';
+                location.href = 'home.html';
+            }
+                }
+
+function Dissappear(){
+                    document.getElementById('pop-up-alert').style.display = 'none';
+                }
+    </script>
+</body>
+</html>
+
+{% endblock content %}
