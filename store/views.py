@@ -9,3 +9,6 @@ class ListProducts(ListView):
 
 class HomeView(TemplateView):
     template_name = "home.html"
+
+
+# def all_products(request):
