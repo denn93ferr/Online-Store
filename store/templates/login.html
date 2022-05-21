@@ -8,71 +8,75 @@
     <input type="submit" value="Submit" class="btn btn-primary">
   </form>
 
-  <!doctype html>
-  <html lang="en">
-  <head>
-     <title>Login</title>
-      <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-      <div class="container">
-          <div class="pop-up">
-              <div class="sign-buttons-holder">
-                  <p class="sign-in-holder">SIGN IN</p>
-              </div>
-  
-              <div class="form-holder">
-                  <div class="username-holder">
-                      <label for="username">Username / Email</label>
-                      <input type="text" id="username">
-                  </div>
-                  <div class="password-holder">
-                      <label for="password">Password</label>
-                      <input type="password" id="password">
-                  </div>
-                  <div class="reset-holder">
-                      <a href="#">Forgot Password</a>
-                      <a href="#">Resend Verification Email</a>
-                  </div>
-                   <div class="sign-in-button">
-                      <button onclick="CheckIfFilled()">SIGN IN</button>
-                  </div>
-                  <div class="line">
-                      <div class="or">
-                          <p>or</p>
-                      </div>
-                  </div>
-                  <div class="sign-up-button">
-                      <button onclick="location.href = 'signup.html';">SIGN UP</button>
-                  </div>
-              </div>
-          </div>
-          <div id="pop-up-alert">
-              <p>All fields must be asigned</p>
-              <button class="ok" onclick="Dissappear()">Okay</button>
-          </div>
-  
-      </div>
-  
-      <script>
-  
-          document.getElementById('pop-up-alert').style.display = 'none';
-  function CheckIfFilled(){
-              const username = document.getElementById('username').value
-              const password=document.getElementById('password').value
-              if(username.length===0 || password.length===0){
-                  document.getElementById('pop-up-alert').style.display='flex';
-              }
-               else {
-                  document.getElementById('pop-up-alert').style.display = 'none';
-                  location.href = 'home.html';
-              }
-                  }
-  
-  function Dissappear(){
-                      document.getElementById('pop-up-alert').style.display = 'none';
-                  }
-      </script>
-  </body>
-  </html>
-  {% endblock content %}
+<!Doctype html>
+<html lang="en">
+    <head>
+        <title>Login</title>
+        {% block styles}
+        <link rel="stylesheet" href="{% static 'css/login.css' %}"/>
+        {% endblock styles %}
+        {% block extrastyles %}{% endblock extrastyles %}
+
+    </head>
+    <body>
+        <div class="container">
+            <div class="pop-up">
+                <div class="sign-buttons-holder">
+                    <p class="sign-in-holder">SIGN IN</p>
+                </div>
+
+                <div class="form-holder">
+                    <div class="username-holder">
+                        <label for="username">Username / Email</label>
+                        <input type="text" id="username">
+                    </div>
+                    <div class="password-holder">
+                        <label for="password">Password</label>
+                        <input type="password" id="password">
+                    </div>
+                    <div class="reset-holder">
+                        <a href="#">Forgot Password</a>
+                        <a href="#">Resend Verification Email</a>
+                    </div>
+                    <div class="sign-in-button">
+                        <button onclick="CheckIfFilled()">SIGN IN</button>
+                    </div>
+                    <div class="line">
+                        <div class="or">
+                            <p>or</p>
+                        </div>
+                    </div>
+                    <div class="sign-up-button">
+                        <button onclick="location.href = '{% url 'signup' %}'";>SIGN UP</button>
+                    </div>
+                </div>
+            </div>
+            <div id="pop-up-alert">
+                <p>All fields must be asigned</p>
+                <button class="ok" onclick="Dissappear()">Okay</button>
+            </div>
+
+        </div>
+
+        <script>
+
+            document.getElementById('pop-up-alert').style.display = 'none';
+            function CheckIfFilled(){
+                const username = document.getElementById('username').value
+                const password=document.getElementById('password').value
+                if(username.length===0 || password.length===0){
+                    document.getElementById('pop-up-alert').style.display='flex';
+                }
+                else {
+                    document.getElementById('pop-up-alert').style.display = 'none';
+                    location.href = 'home.html';
+                }
+                    }
+
+             function Dissappear(){
+                        document.getElementById('pop-up-alert').style.display = 'none';
+                    }
+        </script>
+    </body>
+</html>
+{% endblock content %}
